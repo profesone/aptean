@@ -1,0 +1,648 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clearfix {
+    clear: both;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    line-height: 1;
+    color: #c9d1d9;
+    font-family: Lato, sans-serif;
+    background-color: #0d1117;
+}
+
+.header {
+    height: 46px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #fff;
+    background-color: #161b22;
+}
+
+.header-content {
+    width: 1168px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    left: -4px;
+}
+
+
+.global-actions {
+    float: left;
+}
+
+.global-actions li {
+    float: left;
+    display: block;
+    height: 46px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-left: 25px;
+}
+
+.global-actions li:first-child {
+    margin-left: 0;
+}
+
+.global-actions li a {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 17px;
+    float: left;
+}
+
+.selected-dot {
+    color: #0084b4;
+    background-image: url('./images/selected-dot.png');
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    width: 7px;
+    height: 6px;
+}
+
+.compose-tweet {
+    background-color: #329bc2;
+    border-radius: 4px;
+    width: 90px;
+    height: 32px;
+    border: none;
+    color: #fff;
+    float: right;
+    margin-top: 7px;
+    text-align: center;
+    line-height: 21px;
+}
+
+.compose-tweet:hover {
+    background: linear-gradient(0deg, #007099, #0082b2);
+}
+
+.compose-tweet i {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 21px;
+    margin-right: 5px;
+}
+
+.compose-tweet .wrap {
+    position: relative;
+    cursor: pointer;
+}
+
+.search {
+    float: right;
+    width: 200px;
+    background-color: #f5f8fa;
+    border: 1px solid #e1e8ed;
+    border-radius: 18px;
+    padding: 6px 15px 6px 15px;
+    margin-top: 7px;
+    display: flex;
+}
+
+.search span {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    cursor: pointer;
+    flex-shrink: 0;
+    color: #000;
+}
+
+.search input {
+    float: left;
+    background-color: #f5f8fa;
+    margin-right: 5px;
+    border: none;
+    flex-grow: 1;
+}
+
+.header .profile-picture-small {
+    float: right;
+    margin-top: 7px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    cursor: pointer;
+}
+
+.page-wrap {
+    width: 1200px;
+    margin: 48px auto 0 auto;
+    height: auto;
+}
+
+.header .logo {
+    float: right;
+    margin-top: 9px;
+    margin-right: 210px;
+    font-size: 27px;
+}
+
+.subtext {
+    color: #8899a6;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    color: #0084b4;
+}
+
+h1 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 300;
+    color: #66757f;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.left-sidebar {
+    float: left;
+    width: 290px;
+}
+
+.top-level-panel {
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+}
+
+.user-summary {
+    height: 194px;
+}
+
+.trending {
+    padding: 15px;
+    font-size: 13px;
+    line-height: 17px;
+    background: #0d1117;
+}
+
+.trend {
+    margin-top: 12px;
+}
+
+.trending-hashtag {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.trending li a:hover {
+    text-decoration: none;
+}
+
+.trend-description {
+    color: #c9d1d9;
+}
+
+.user-info-wrap {
+    margin-top: 55px;
+}
+
+.user-summary {
+    padding: 10px;
+    background: linear-gradient(0deg, white 50%, #0084b4 50%);
+    height: 170px;
+}
+
+.profile-picture {
+    float: left;
+    border-radius: 7px;
+    cursor: pointer;
+    height: 71px;
+}
+
+.username-wrap {
+    margin-top: 38px;
+    float: left;
+    margin-left: 4px;
+}
+
+.user-summary .display-name {
+    color: black;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-summary .username {
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(102, 117, 127);
+}
+
+.user-summary li {
+    display: block;
+    float: left;
+}
+
+.user-stats {
+    margin-top: 14px;
+    float: left;
+
+}
+
+.user-stats li:nth-child(1) {
+    width: 77px;
+}
+
+.user-stats li:nth-child(2) {
+    width: 77px;
+}
+
+.user-stats li:nth-child(3) {
+    width: 77px;
+}
+
+.user-summary li a {
+    display: block;
+}
+
+.user-summary li a:hover {
+    text-decoration: none;
+}
+
+.user-stats-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgb(140, 156, 169);
+}
+
+.user-stats-value {
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.central-content {
+    float: left;
+    width: 588px;
+    margin-left: 0px;
+    background: #0d1117;
+}
+
+.tweet-feed > li {
+    padding: 10px 13px;
+    border-bottom: 1px solid #30363d;
+}
+
+.tweet-feed > li:last-child {
+    border-bottom: none;
+}
+
+.new-tweet {
+    background-color: #0d1116;
+    height: 40px;
+}
+
+.profile-picture-small {
+    width: 32px;
+    height: 32px;
+    margin-left: 12px;
+    margin-top: 2px;
+    float: left;
+}
+
+.tweet-input-wrap {
+    background-color: #fff;
+    width: 505px;
+    height: 35px;
+    float: left;
+    margin-left: 8px;
+    border-radius: 3px;
+    border: 1px solid #30363d;
+    display: flex;
+}
+
+.tweet-input-wrap input {
+    height: 33px;
+    line-height: 35px;
+    width: 100%;
+    float: left;
+    margin-left: 5px;
+    border: none;
+    flex-grow: 1;
+}
+
+.tweet-input-wrap input::-webkit-input-placeholder {
+    color: #0084b4;
+    font-size: 14px;
+}
+
+.tweet-input-wrap .attach-photo {
+    margin: 0 10px 0 3px;
+    font-size: 20px;
+    line-height: 35px;
+    flex-shrink: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.view-new-tweets {
+    cursor: pointer;
+    margin: 0 -1px 0 -1px;
+}
+
+.view-new-tweets:hover {
+    background-color: #30363d;
+}
+
+.view-new-tweets p {
+    color: #0084b4;
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.tweet-profile-thumbnail {
+    border-radius: 5px;
+    width: 48px;
+    height: 48px;
+    float: left;
+    cursor: pointer;
+}
+
+.tweet-display-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tweet-display-name:hover,
+.tweet-time:hover {
+    color: #0084b4;
+}
+
+.tweet-username,
+.tweet-time {
+    color: #8899a6;
+    font-size: 13px;
+}
+
+.tweet .tweet-username:after {
+    content: " · "
+}
+
+.tweet-username:hover {
+    text-decoration: none;
+}
+
+.tweet-content-wrap {
+    float: right;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: 480px;
+
+}
+
+.tweet-text {
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 3px;
+}
+
+.external-link {
+    font-size: 15px;
+}
+
+.tweet-action-buttons {
+    display: flex;
+    margin: 20px 0 0;
+}
+.tweet-action-buttons li {
+    margin: 0 0 0 23px;
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    color: #71767a;
+}
+.tweet-action-buttons li:first-child {
+    margin-left: 0;
+}
+.tweet-action-buttons li a {
+    color: #71767a;
+    text-decoration: none;
+}
+.tweet-action-buttons li span {
+    font-size: 15px;
+    color: #71767a;
+    margin: 0 0 0 7px;
+}
+
+.view-media {
+    float: right;
+    font-size: 12px;
+    position: relative;
+    width: 100px;
+    top: 10px;
+    right: -50px;
+}
+
+.tweet-photo {
+    border-radius: 6px;
+    width: 500px;
+    overflow: auto;
+    height: 275px;
+    margin-top: 10px;
+}
+
+.right-sidebar {
+    position: relative;
+    right: 8px;
+    width: 300px;
+    float: left;
+}
+
+.who-to-follow,
+.footer {
+    float: left;
+    width: 288px;
+    background: #0d1117;
+}
+
+.who-to-follow-header {
+    height: 30px;
+    display: block;
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+.who-to-follow-header li {
+    float: left;
+    margin-right: 4px;
+}
+
+.who-to-follow-header a {
+    font-size: 12px;
+    line-height: 23px;
+}
+
+.who-to-follow-header li:nth-child(2):before,
+.who-to-follow-header li:nth-child(2):after {
+    content: " · "
+}
+
+.who-to-follow-list {
+    margin-top: 20px;
+}
+.who-to-follow-list li {
+    margin: 10px 15px;
+}
+
+.who-to-follow-list .tweet-profile-thumbnail {
+    width: 53px;
+    height: 53px;
+}
+
+.verified {
+    width: 18px;
+    height: 18px;
+    background: url('./images/verified.gif');
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin: 0px 1px;
+    cursor: pointer;
+}
+
+.who-to-follow-line-wrap {
+    display: inline-block;
+    width: 183px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 17px;
+    float: left;
+    font-size: 13px;
+    color: #8899a6;
+}
+
+.who-to-follow-display-name {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.who-to-follow-line-wrap .username-mention {
+    font-size: 13px;
+}
+
+.who-to-follow-list .tweet-profile-thumbnail {
+    margin-right: 10px;
+}
+
+.close-icon {
+    float: right;
+    position: relative;
+    top: 6px;
+    left: 6px;
+}
+
+.follow {
+    background: linear-gradient(0deg, #f5f8fa, white);
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    padding: 5px 12px;
+    width: 64px;
+    height: 19px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 18px;
+    cursor: pointer;
+    float: left;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.follow:hover {
+    text-decoration: none;
+    background: linear-gradient(0deg, #e1e8ed, white);
+}
+
+.who-to-follow-right-wrap {
+    float: left;
+}
+
+.footer {
+    float: left;
+    width: 258px;
+    margin-left: 10px;
+    margin-top: 0px;
+    padding: 15px 15px;
+}
+
+.footer li {
+    float: left;
+    display: block;
+    margin-right: 8px;
+}
+
+.footer a {
+    font-size: 12px;
+    line-height: 17px;
+    color: #8b949e;
+}
