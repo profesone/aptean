@@ -16,7 +16,6 @@
             <div class="tweet-header">
                 <a href="#" class="tweet-display-name">{{ tweet.user.name }}</a>
                 <a href="#" class="tweet-username">@{{ tweet.user.username }}</a>
-                <a href="#" class="tweet-time">20m</a>
             </div>
             <p class="tweet-text">
                 {{ tweet.message }}
@@ -24,20 +23,8 @@
             <ul class="tweet-action-buttons">
                 <li>
                     <a href="#">
-                        <i class="fa fa-reply"></i>
-                        <span></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         <i class="fa fa-retweet"></i>
-                        <span>6</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-star"></i>
-                        <span>9</span>
+                        <span>{{ retweet.count }}</span>
                     </a>
                 </li>
             </ul>

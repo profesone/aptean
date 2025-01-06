@@ -7,7 +7,12 @@
         { label: 'Messages', icon: 'fa-comment', route: '/messages' }
     ];
 
-    const userAvatar = '/assets/avatars/1.png';
+    defineProps({
+        user: {
+            type: Object,
+            required: true
+        }
+    });
 </script>
 
 <template>
@@ -22,19 +27,10 @@
                 </li>
             </ul>
 
-            <img :src="userAvatar" alt="Profile" class="profile-picture-small">
-
-            <div class="search">
-                <input
-                    type="text"
-                    placeholder="Search Twitter"
-                    name="search"
-                    id="search"
-                />
-                <span class="fa fa-search"></span>
+            <div class="logo">@{{ user.username }} 
+                <img :src="user.avatar" alt="Profile" class="profile-picture-small">
             </div>
-
-            <i class="logo fa fa-twitter" aria-hidden="true"></i>
+            <i class="logo fa fa-twitter" aria-hidden="true"></i>   
         </div>
     </div>
 </template>

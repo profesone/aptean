@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tweet;
+use App\Models\Follower;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,44 +18,25 @@ class TweetController extends Controller
         $user = Auth::user();
         
         $userStats = [
-            'tweets_count' => $user->tweets()->count(),
-            'followers_count' => $user->followers()->count(),
-            'following_count' => $user->following()->count(),
+            'tweets_count'      => $user->tweets()->count(),
+            'followers_count'   => $user->followers()->count(),
+            'following_count'   => $user->following()->count(),
         ];
-
-        $tweets = Tweet::with('user')
-            ->latest()
-            ->paginate(10);
-
-        // Suggest any other user
-        $suggestedUsers = User::select('id','name','username','avatar')
-            ->whereNot('id', $user->id)
-            ->get();
 
         return Inertia::render('Tweets/Index', [
             'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'username' => $user->username,
-                'avatar' => $user->avatar,
-                'stats' => $userStats,
+                'id'        => $user->id,
+                'name'      => $user->name,
+                'username'  => $user->username,
+                'avatar'    => $user->avatar,
+                'stats'     => $userStats,
             ],
-            'tweets' => $tweets,
-            'suggestedUsers' => $suggestedUsers,
+            'tweets'            => $this->getTweets(),
+            'suggested_users'   => $this->getSuggestedUsers(),
+            'followers'         => $this->getFollowers(),
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -66,35 +48,31 @@ class TweetController extends Controller
         return redirect(route('tweets.index'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tweet $tweet)
+    private function getFollowers(): array
     {
-        //
+        if (Auth::user()->id) {
+            return Follower::where('follower_id', '=', Auth::user()->id)
+                ->get()
+                ->toArray();
+        }
+        
+        return ['error' => 'Take a look at our suggested followers.'];
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tweet $tweet)
+    private function getSuggestedUsers(): array
     {
-        //
+        if (Auth::user()->id) {
+             return User::select('id','name','username','avatar')
+                ->whereNot('id', Auth::user()->id)
+                ->get()
+                ->toArray();
+        }
+        
+        return ['error' => 'You need to login.'];
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Tweet $tweet)
+    private function getTweets()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Tweet $tweet)
-    {
-        //
+        return Tweet::with('user', 'retweet')->latest()->paginate(10);
     }
 }

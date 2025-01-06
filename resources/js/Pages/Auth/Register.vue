@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import AuthLayout from '@/Layouts/AuthLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -21,18 +21,19 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <AuthLayout>
         <Head title="Register" />
-
+        <h1>Register</h1>
         <form @submit.prevent="submit">
-            <div>
+            <div class="form-group">
                 <InputLabel for="name" value="Name" />
 
                 <TextInput
                     id="name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="form-control"
                     v-model="form.name"
+                    placeholder="Name"
                     required
                     autofocus
                     autocomplete="name"
@@ -41,13 +42,14 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
-            <div class="mt-4">
+            <div class="form-group">
                 <InputLabel for="email" value="Email" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="form-control"
+                    placeholder="Email"
                     v-model="form.email"
                     required
                     autocomplete="username"
@@ -56,13 +58,14 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
-            <div class="mt-4">
+            <div class="form-group">
                 <InputLabel for="password" value="Password" />
 
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="form-control"
+                    placeholder="Password"
                     v-model="form.password"
                     required
                     autocomplete="new-password"
@@ -71,7 +74,7 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
-            <div class="mt-4">
+            <div class="form-group">
                 <InputLabel
                     for="password_confirmation"
                     value="Confirm Password"
@@ -80,7 +83,8 @@ const submit = () => {
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="form-control"
+                    placeholder="Confirm Password"
                     v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
@@ -96,12 +100,11 @@ const submit = () => {
                 <Link
                     :href="route('login')"
                     class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                >
-                    Already registered?
+                > Already registered?
                 </Link>
 
                 <PrimaryButton
-                    class="ms-4"
+                    class="btn btn-primary"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
@@ -109,5 +112,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </AuthLayout>
 </template>

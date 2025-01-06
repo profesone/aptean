@@ -1,66 +1,56 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![Logo](https://images.ctfassets.net/grb5fvwhwnyo/7EOl2d2ObZsDa0tE3FqZz/c9a0f388d3b070ef7156cfe804d44565/logo.svg)
+![Logo](https://500lines.com/img/500LinesLogoHorizontal.png)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Environments
+For safty or maybe just preference, you can use Laravel Sail or Docker for reviewing the test.
+### Docker
+Here's a good container to use for this test from [DockerHub.com](https://hub.docker.com/r/bitnami/laravel)
+### Laravel Sail
+- You will need [Composer](https://getcomposer.org/download) and [PHP](https://www.php.net/manual/en/install.general.php) installed at the very least on your machine to use Sail.
+- Installation instruction on Laravel Sail can be found [here](https://laravel.com/docs/11.x/sail#installing-sail-into-existing-applications).
+- When installed, run the following in your app root diectory if not already done.
+```
+composer require laravel/sail --dev
+php artisan sail:install
+```
+### Local Environment
+If you choose to run the app locally, you will need to have [PHP](https://www.php.net/manual/en/install.general.php), [Node](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), and [Composer](https://getcomposer.org/download) and [PHP](https://www.php.net/manual/en/install.general.php) installed and updated.
+## Installation
+You will need to setup your .env file in your root directory. You can use the .env-copy as reference.  For convience, I would not change the following line.
+```
+DB_CONNECTION=sqlite
+```
+In your root directory, run the following
+```
+composer install
+php artisan migrate:fresh --seed
+```
+This will install all dependencies and trigger all the seeders needed to populate the app.
 
-## About Laravel
+To continue, we need to start Node to run VueJS (aka, magic stuff).
+```
+npm install && npm run dev
+```
+If running locally, use the following command to skip the having a web server installed.
+```
+php artisan serv
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Login
+In the seeder, a test user was created. You will be able to login at http://127.0.0.1:8000/login
+There, you can enter the test user's credentials.
+```
+    user: test@test.com
+password: password
+```
+## Database
+- For the test, I used SQLite.  It's quick and dirty and I saw no need to do any complex queries. Which is why I mentioned not changing this line in the .env file.
+```
+DB_CONNECTION=sqlite
+```
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+This test and all source code in this repo should not be used anywhere for any reason without permission.
